@@ -163,8 +163,13 @@
         <a href="#contact">İletişim</a>
     </nav>
 
+    <h1>
+        <img src="https://media.discordapp.net/attachments/1192538533060169791/1287015455114133555/Remove-bg.ai_1726918786427.png?ex=66f0020c&is=66eeb08c&hm=83eb989478be0d5699cf6ee273744b914b3eb5cbccafab36e30b6e891adb8e43&=&format=webp&quality=lossless&width=423&height=423" alt="Logo Sol" style="width: 100px; height: 100px; vertical-align: middle;">
+        Vanessa Network
+        <img src="https://media.discordapp.net/attachments/1192538533060169791/1287015455114133555/Remove-bg.ai_1726918786427.png?ex=66f0020c&is=66eeb08c&hm=83eb989478be0d5699cf6ee273744b914b3eb5cbccafab36e30b6e891adb8e43&=&format=webp&quality=lossless&width=423&height=423" alt="Logo Sağ" style="width: 100px; height: 100px; vertical-align: middle;">
+    </h1>
+
     <div>
-        <h1>Vanessa Network</h1>
         <div class="countdown-container">
             <p>2026-2027'de açılıyor!</p>
             <div class="countdown" id="timer">
@@ -197,34 +202,31 @@
     <div class="support" id="support">
         <h2>Destek</h2>
         <img src="https://media.discordapp.net/attachments/1275358931958628374/1281695067198849275/vanessanetworkk.png?ex=66efc4cc&is=66ee734c&hm=054924269757bf4b8ad50ab5eaf70d6e7f6e120e3e63065f3feb87b455259aef&=&format=webp&quality=lossless&width=752&height=423" alt="Destek">
-        <p>Herhangi bir sorunuz, öneriniz veya desteğe ihtiyacınız varsa, lütfen bizimle iletişime geçin! Size yardımcı olmaktan mutluluk duyarız. Destek ekibimiz, her zaman yanınızda olacak ve sorularınızı yanıtlamak için buradadır. Vanessa Network, topluluk odaklı bir sunucu olduğundan, sizin geri bildirimleriniz bizim için değerlidir. Bizimle iletişim kurmak için aşağıdaki yöntemleri kullanabilirsiniz.</p>
-
+        <p>Herhangi bir sorunuz, öneriniz veya desteğe ihtiyacınız varsa, lütfen bizimle iletişime geçin! Size yardımcı olmaktan mutluluk duyarız. Destek ekibimiz, her zaman yanınızda olacak ve sorularınızı yanıtlamak için buradadır. Vanessa Network, topluluk odaklı bir sunucu olduğundan, sizin geri bildirimleriniz bizim için değerlidir. Bizimle iletişim kurmak için aşağıdaki yöntemleri kullanabilirsiniz:</p>
         <h3>Destek Talebi Gönder</h3>
-        <p>Destek talepleriniz için Discord sunucumuza katılabilirsiniz: <a href="https://discord.gg/WFPansCrwX" style="color: #FF7F50; text-decoration: underline;">Discord'a Katıl</a></p>
         <form id="supportForm">
-            <textarea placeholder="Destek talebinizi buraya yazın..." required></textarea>
+            <textarea id="supportMessage" placeholder="Mesajınızı buraya yazın..." required></textarea>
             <button type="submit">Gönder</button>
+            <p id="formMessage"></p>
         </form>
-        <p id="formMessage"></p>
     </div>
 
     <div class="contact" id="contact">
         <h2>İletişim</h2>
-        <p>Bizimle iletişime geçmek için Discord kanalımıza katılabilirsiniz:</p>
-        <a href="https://discord.gg/E9Kk9epCnB" style="color: #FF7F50; text-decoration: underline;">Discord'a Katıl</a>
+        <p>Vanessa Network ile iletişim kurmak için lütfen destek talebi oluşturun veya Discord üzerinden bize ulaşın.</p>
+        <p><a href="https://discord.gg/WFPansCrwX" style="color: #FF7F50;">Discord Linkimiz</a></p>
     </div>
 
     <footer>
-        © 2024 Vanessa Network - Yeniliklere hazır olun!
+        <p>&copy; 2024 Vanessa Network. Tüm Hakları Saklıdır.</p>
     </footer>
 
     <script>
-        // Zamanlayıcı ayarları
-        const launchDate = new Date('2026-11-01T00:00:00').getTime();
+        const countdownDate = new Date("November 1, 2026 00:00:00").getTime();
 
-        const countdown = setInterval(function() {
+        const x = setInterval(function() {
             const now = new Date().getTime();
-            const distance = launchDate - now;
+            const distance = countdownDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -237,10 +239,17 @@
             document.getElementById("seconds").innerHTML = seconds;
 
             if (distance < 0) {
-                clearInterval(countdown);
+                clearInterval(x);
                 document.getElementById("timer").innerHTML = "Açıldı!";
             }
         }, 1000);
+
+        document.getElementById("supportForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const message = document.getElementById("supportMessage").value;
+            document.getElementById("formMessage").innerText = "Destek talebiniz gönderildi: " + message;
+            document.getElementById("supportMessage").value = ""; // Temizle
+        });
     </script>
 </body>
 </html>
