@@ -220,8 +220,7 @@
 
     <script>
         // Zamanlayıcı ayarları
-        const launchDate = new Date();
-        launchDate.setDate(launchDate.getDate() + 800); // Bugünden 800 gün ileri
+        const launchDate = new Date('2026-11-01T00:00:00').getTime();
 
         const countdown = setInterval(function() {
             const now = new Date().getTime();
